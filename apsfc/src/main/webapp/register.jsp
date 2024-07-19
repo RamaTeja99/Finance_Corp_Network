@@ -1,18 +1,44 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>Customer Registration</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="path_to_your_css/bootstrap.min.css">
+    <style>
+        /* Custom styles */
+    </style>
 </head>
 <body>
-    <h2>Customer Registration</h2>
-    <form action="register" method="post">
-        Name: <input type="text" name="name"><br>
-        Email: <input type="text" name="email"><br>
-        Customer Type: <input type="text" name="customerType"><br>
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Register">
-    </form>
+    <div class="container">
+        <h1>Customer Registration</h1>
+        <form action="register" method="post">
+            <input type="hidden" name="role" value="customer">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="customerType">Customer Type:</label>
+                <select class="form-control" id="customerType" name="customerType">
+                    <option value="regular">Regular</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
 </body>
 </html>

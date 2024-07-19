@@ -1,4 +1,5 @@
 package com.apsfc.rest;
+
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -14,14 +15,19 @@ import com.apsfc.services.CustomerService;
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class CustomerResource {
+
     @EJB
     private CustomerService customerService;
 
     @POST
     @Path("/register")
     public Response registerCustomer(Customer customer) {
-        customerService.registerCustomer(customer);
-        return Response.ok().build();
+        try {
+            customerService.registerCustomer(customer.getName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), customer.getCustomerType());
+            return Response.ok().build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();
+        }
     }
 
     @POST
@@ -31,7 +37,7 @@ public class CustomerResource {
         if (customer != null) {
             return Response.ok(customer).build();
         } else {
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            return Response.status(Response.Status.UNAUTHORIZED).entity("Invalid username or password").build();
         }
     }
 

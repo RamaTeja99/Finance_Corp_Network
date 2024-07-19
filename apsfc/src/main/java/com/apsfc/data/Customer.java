@@ -2,6 +2,7 @@ package com.apsfc.data;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Customer implements Serializable {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="customer_id")
     private Long customerId;
     
     @ManyToOne
@@ -28,6 +30,7 @@ public class Customer implements Serializable {
 
     private String name;
     private String email;
+    @Column(name="customer_type")
     private String customerType;
     private String username;
     private String password;
