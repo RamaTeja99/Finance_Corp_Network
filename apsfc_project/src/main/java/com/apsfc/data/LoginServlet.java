@@ -7,11 +7,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.apsfc.services.AdminService;
-import com.apsfc.services.CustomerService;
 import com.apsfc.services.EmployeeService;
+import com.apsfc.services.CustomerService;
+import com.apsfc.data.Admin;
+import com.apsfc.data.Employee;
+import com.apsfc.data.Customer;
 
+/**
+ * Servlet implementation class LoginServlet
+ */
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -25,15 +30,19 @@ public class LoginServlet extends HttpServlet {
     @EJB
     private CustomerService customerService;
 
+    /**
+     * Handles POST requests for user login.
+     */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+
         try {
             Admin admin = adminService.validateAdminLogin(username, password);
             if (admin != null) {
                 // Admin logged in successfully
                 request.getSession().setAttribute("admin", admin);
-                // Forward to RetrieveCustomers servlet
+                // Redirect to admin dashboard
                 request.getRequestDispatcher("/retrieveCustomers").forward(request, response);
                 return;
             }

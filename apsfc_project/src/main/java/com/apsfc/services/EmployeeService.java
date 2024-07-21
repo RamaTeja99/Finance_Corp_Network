@@ -1,13 +1,16 @@
 package com.apsfc.services;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 import com.apsfc.data.Admin;
+import com.apsfc.data.Customer;
 import com.apsfc.data.Employee;
 
 @Stateless
@@ -44,4 +47,15 @@ public class EmployeeService {
             return null;
         }
     }
+        @EJB
+        private EmployeeDAO employeeDAO;
+        
+        private static final Logger logger = Logger.getLogger(CustomerService.class.getName());
+
+        public List<Employee> readEmployeeData() {
+            List<Employee> employees = employeeDAO.getAllEmployees();
+            logger.info("CustomerService readCustomerData retrieved: " + employees);
+            return employees;
+        }
+    
 }

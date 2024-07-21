@@ -2,8 +2,11 @@ package com.apsfc.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -39,14 +42,14 @@ public class CustomerService {
         }
     }
 
+    @EJB
+    private CustomerDAO customerDAO;
+    
+    private static final Logger logger = Logger.getLogger(CustomerService.class.getName());
+
     public List<Customer> readCustomerData() {
-        List<Customer> customers = new ArrayList<>();
-        try {
-            TypedQuery<Customer> query = em.createQuery("SELECT c FROM Customer c", Customer.class);
-            customers = query.getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        List<Customer> customers = customerDAO.getAllCustomers();
+        logger.info("CustomerService readCustomerData retrieved: " + customers);
         return customers;
     }
 }
