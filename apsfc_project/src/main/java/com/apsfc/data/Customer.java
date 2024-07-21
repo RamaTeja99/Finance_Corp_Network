@@ -32,6 +32,7 @@ public class Customer implements Serializable {
     private String email;
     @Column(name="customer_type")
     private String customerType;
+	private String phone_no;
     private String username;
     private String password;
 	public Long getCustomerId() {
@@ -76,6 +77,10 @@ public class Customer implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-    
+    public String getPhone_no() {
+		return phone_no;
+	}
+	public void setPhone_no(String phone_no) {
+		this.phone_no = phone_no;
+	}
 }

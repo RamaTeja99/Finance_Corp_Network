@@ -23,7 +23,7 @@ public class CustomerResource {
     @Path("/register")
     public Response registerCustomer(Customer customer) {
         try {
-            customerService.registerCustomer(customer.getName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), customer.getCustomerType());
+            customerService.registerCustomer(customer.getName(), customer.getEmail(), customer.getUsername(), customer.getPassword(), customer.getCustomerType(),customer.getPhone_no());
             return Response.ok().build();
         } catch (Exception e) {
             return Response.status(Response.Status.BAD_REQUEST).entity(e.getMessage()).build();

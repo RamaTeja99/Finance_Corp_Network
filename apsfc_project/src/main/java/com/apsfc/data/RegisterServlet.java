@@ -31,9 +31,10 @@ public class RegisterServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String customerType = request.getParameter("customerType");
+            String phone_no = request.getParameter("phone");
 
             try {
-                customerService.registerCustomer(name, email, username, password, customerType);
+                customerService.registerCustomer(name, email, username, password, customerType,phone_no);
                 response.sendRedirect("login.jsp");
             } catch (Exception e) {
                 // Handle registration error

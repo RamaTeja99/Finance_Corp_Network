@@ -23,6 +23,10 @@
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
+            </div>
+            <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="text" class="form-control" id="username" name="username" required>
             </div>
