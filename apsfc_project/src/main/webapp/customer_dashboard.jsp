@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Customer Dashboard</title>
-    <!-- Include any necessary CSS or JS files -->
+    <style type="text/css"></style>
 </head>
 <body>
     <h1>Welcome, ${customerName}</h1>

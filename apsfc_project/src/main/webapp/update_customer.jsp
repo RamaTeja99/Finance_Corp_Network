@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update_Customer</title>
+    <style type="text/css"></style>
+</head>
+<body>
 <%@ page import="java.util.*" %>
 <%@ page import="com.apsfc.services.CustomerDAO" %>
 <%@ page import="com.apsfc.data.Customer" %>
@@ -55,3 +63,5 @@
         out.println("Invalid customer ID format.");
     }
 %>
+</body>
+</html>

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Employee Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+    <style></style>
 </head>
 <body>
     <div class="container">

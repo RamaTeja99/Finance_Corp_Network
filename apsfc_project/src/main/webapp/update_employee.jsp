@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Update_Employee</title>
+    <style type="text/css"></style>
+</head>
+<body>
 <%@ page import="java.util.*" %>
 <%@ page import="com.apsfc.services.EmployeeDAO" %>
 <%@ page import="com.apsfc.data.Employee" %>
@@ -51,3 +59,5 @@
         out.println("Invalid employee ID format.");
     }
 %>
+</body>
+</html>

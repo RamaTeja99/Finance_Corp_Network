@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="path_to_your_css/bootstrap.min.css">
     <style>
         table {
             width: 100%;

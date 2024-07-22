@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <title>Customer Registration</title>
-    <link rel="stylesheet" href="path_to_your_css/bootstrap.min.css">
     <style>
         /* Custom styles */
     </style>
