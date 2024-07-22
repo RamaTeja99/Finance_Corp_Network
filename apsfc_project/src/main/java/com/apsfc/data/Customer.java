@@ -24,9 +24,8 @@ public class Customer implements Serializable {
 	@Column(name="customer_id")
     private Long customerId;
     
-	@Column(name = "employee_id")
-    private int employeeId;
-
+	@Column(name = "employee_id", nullable = true)
+    private Long employeeId;
 
 	private String name;
     private String email;
@@ -46,12 +45,6 @@ public class Customer implements Serializable {
 	}
 	public void setName(String name) {
 		this.name = name;
-	}
-    public int getEmployeeId() {
-		return employeeId;
-	}
-	public void setEmployeeId(int employeeId) {
-		this.employeeId = employeeId;
 	}
 	public String getEmail() {
 		return email;
@@ -83,9 +76,11 @@ public class Customer implements Serializable {
 	public void setPhone_no(String phone_no) {
 		this.phone_no = phone_no;
 	}
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", name=" + name + ", email=" + email + ", customerType="
-				+ customerType + ", phone_no=" + phone_no + ", username=" + username + ", password=" + password + "]";
+	public Long getEmployeeId() {
+		return employeeId;
 	}
+	public void setEmployeeId(Long employeeId) {
+		this.employeeId = employeeId;
+	}
+
 }

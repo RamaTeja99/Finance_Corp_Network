@@ -30,7 +30,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
     if ("update".equals(action)) {
         Long customerId = Long.parseLong(request.getParameter("customerId"));
         String name = request.getParameter("name");
-        int employeeId = Integer.parseInt(request.getParameter("employee_id"));
+        long employeeId = Long.parseLong(request.getParameter("employee_id"));
         String email = request.getParameter("email");
         String phone_no = request.getParameter("phone");
         String customerType = request.getParameter("customerType");

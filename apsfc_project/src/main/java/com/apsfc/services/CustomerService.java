@@ -21,6 +21,7 @@ public class CustomerService {
 
     public void registerCustomer(String name, String email, String username, String password, String customerType,String phone_no) {
         Customer customer = new Customer();
+        customer.setEmployeeId(null); 
         customer.setName(name);
         customer.setEmail(email);
         customer.setUsername(username);
