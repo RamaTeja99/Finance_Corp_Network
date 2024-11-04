@@ -26,14 +26,6 @@ public class Admin implements Serializable {
 
     private String username;
     private String password;
-    @OneToMany(mappedBy = "admin")
-    private List<Employee> employees;
-	public List<Employee> getEmployees() {
-		return employees;
-	}
-	public void setEmployees(List<Employee> employees) {
-		this.employees = employees;
-	}
 	public Long getAdminId() {
 		return adminId;
 	}

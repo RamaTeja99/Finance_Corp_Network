@@ -11,7 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
+import com.apsfc.data.Admin;
 import com.apsfc.data.Customer;
+import com.apsfc.data.Employee;
 
 @Stateless
 public class CustomerService {
@@ -19,9 +21,11 @@ public class CustomerService {
     @PersistenceContext
     private EntityManager em;
 
-    public void registerCustomer(String name, String email, String username, String password, String customerType,String phone_no) {
+    public void registerCustomer(Long employeeId,String name, String email, String username, String password, String customerType,String phone_no) {
         Customer customer = new Customer();
-        customer.setEmployeeId(null); 
+        Employee employee = em.find(Employee.class, employeeId);
+        if (employee != null) {
+        customer.setEmployeeId(employeeId); 
         customer.setName(name);
         customer.setEmail(email);
         customer.setUsername(username);
@@ -30,6 +34,10 @@ public class CustomerService {
         customer.setPhone_no(phone_no);
         
         em.persist(customer); // Ensure customer entity is persisted correctly
+        }
+    else {
+        throw new IllegalArgumentException("Employee with ID " + employeeId + " not found");
+    }
     }
 
     public Customer validateCustomerLogin(String username, String password) {
@@ -53,4 +61,5 @@ public class CustomerService {
         logger.info("CustomerService readCustomerData retrieved: " + customers);
         return customers;
     }
+    
 }

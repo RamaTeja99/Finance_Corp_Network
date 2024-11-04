@@ -5,6 +5,6 @@
 		<class>com.apsfc.data.Admin</class>
 		<class>com.apsfc.data.Customer</class>
 		<class>com.apsfc.data.Employee</class>
-		<class>com.apsfc.data.Loan</class>
+		<class>com.apsfc.data.CustomerLoan</class>
 	</persistence-unit>
 </persistence>

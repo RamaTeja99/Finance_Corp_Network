@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 
 import com.apsfc.data.Admin;
 import com.apsfc.data.Customer;
+import com.apsfc.data.CustomerLoan;
 import com.apsfc.data.Employee;
 
 @Stateless
@@ -24,7 +25,7 @@ public class EmployeeService {
         Admin admin = em.find(Admin.class, adminId);
         
         if (admin != null) {
-            employee.setAdmin(admin);
+            employee.setAdminId(adminId);
             employee.setName(name);
             employee.setEmail(email);
             employee.setUsername(username);
@@ -56,6 +57,19 @@ public class EmployeeService {
             List<Employee> employees = employeeDAO.getAllEmployees();
             logger.info("CustomerService readCustomerData retrieved: " + employees);
             return employees;
+        }
+        public List<Customer> getCustomersByEmployeeId(Long employeeId) {
+            TypedQuery<Customer> query = em.createQuery(
+                "SELECT c FROM Customer c WHERE c.employeeId = :employeeId", Customer.class);
+            query.setParameter("employeeId", employeeId);
+            return query.getResultList();
+        }
+
+        public List<CustomerLoan> getLoansByEmployeeId(Long employeeId) {
+            TypedQuery<CustomerLoan> query = em.createQuery(
+                "SELECT cl FROM CustomerLoan cl WHERE cl.customerId IN (SELECT c.customerId FROM Customer c WHERE c.employeeId = :employeeId)", CustomerLoan.class);
+            query.setParameter("employeeId", employeeId);
+            return query.getResultList();
         }
     
 }

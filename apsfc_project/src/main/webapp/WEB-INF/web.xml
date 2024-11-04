@@ -15,11 +15,11 @@
     <url-pattern>*.jsf</url-pattern>
   </servlet-mapping>
    <servlet>
-    <servlet-name>RetrieveCustomers</servlet-name>
-    <servlet-class>com.apsfc.data.RetrieveCustomers</servlet-class>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <servlet-class>com.apsfc.servlet.AdminDashboardServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>RetrieveCustomers</servlet-name>
-    <url-pattern>/retrieveCustomers</url-pattern>
+    <servlet-name>AdminDashboardServlet</servlet-name>
+    <url-pattern>/adminDashboard</url-pattern>
   </servlet-mapping>
 </web-app>

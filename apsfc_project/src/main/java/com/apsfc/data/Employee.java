@@ -24,9 +24,8 @@ public class Employee implements Serializable {
 	@Column(name="employee_id")
     private Long employeeId;
 
-    @ManyToOne
-    @JoinColumn(name = "admin_id")
-    private Admin admin;
+	@Column(name = "admin_id")
+    private Long adminId;
 
     private String name;
     private String email;
@@ -39,11 +38,12 @@ public class Employee implements Serializable {
 	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
-	public Admin getAdmin() {
-		return admin;
+
+	public Long getAdminId() {
+		return adminId;
 	}
-	public void setAdmin(Admin admin) {
-		this.admin = admin;
+	public void setAdminId(Long adminId) {
+		this.adminId = adminId;
 	}
 	public String getName() {
 		return name;
