@@ -35,7 +35,7 @@ public class AdminServlet extends HttpServlet {
 
         if ("updateLoanStatus".equals(action)) {
             Long loanId = Long.parseLong(request.getParameter("loanId"));
-            String status = request.getParameter("status");
+            String status = request.getParameter("newStatus");
             CustomerLoan loan = loanService.findById(loanId);
 
             if ("approved".equals(status)) {
@@ -50,7 +50,7 @@ public class AdminServlet extends HttpServlet {
             }
             loan.setLoanStatus(status);
             loanService.updateLoanStatus(loan);
-            request.getRequestDispatcher("/retrieveForAdmin").forward(request, response);
+            response.sendRedirect("adminDashboard");
         }
     }
 }

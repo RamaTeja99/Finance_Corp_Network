@@ -45,7 +45,7 @@ public class CustomerLoanServlet extends HttpServlet {
             loan.setLoan_timeinterval(loanTimeinterval);
 
             loanService.submitLoanRequest(loan);
-            response.sendRedirect("customer_dashboard.jsp");
+            response.sendRedirect("customerDashboard");
         }
     }
 }

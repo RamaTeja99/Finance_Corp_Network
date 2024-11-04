@@ -331,8 +331,8 @@
                         <td><%= loan.getLoanStatus() %></td>
                                 <td>
                         <div class="actions-container">
-                            <form action="CustomerLoanServlet" method="post">
-                                <input type="hidden" name="action" value="updateStatus">
+                            <form action="AdminServlet" method="post">
+                                <input type="hidden" name="action" value="updateLoanStatus">
                                 <input type="hidden" name="loanId" value="<%= loan.getCustomerLoanId() %>">
                                 <select name="newStatus">
                                     <option value="Approved">Approve</option>
